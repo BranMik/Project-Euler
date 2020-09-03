@@ -26,7 +26,7 @@ There are few main mathematical insights to be made here some somewhat obvious, 
 - Each new *a<sub>th</sub>* number added to form subsets(their sums) is *a<sup>a</sup>*. By the same rule as before, we only need the mod K of that number. But to
 	get the modulo you have to calculate the number first. There are optimized methods of calculating power using memoization,
 	which do not require exponent amount of multiplications, but require logBase2(exponent) + 1 number of multiplications. 
-	So to calculate 5<sup>32</sup> we do not need 32 but 6 number of multiplications. These techniques are already included in language compiler,
+	So to calculate 5<sup>32</sup> we do not need 32 but 6 multiplications. These techniques are already included in language compiler,
 	but not their combination with modulus operation in each step, which increases number of mathematical operations, 
 	but reduces complexity of multiplication and thus increases speed for larger numbers.
   - More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (n<sup>n</sup> mods), **a repeating** 
