@@ -22,7 +22,7 @@ There are few main mathematical insights to be made here some somewhat obvious, 
 		modulus of 39 beforehand as a sum with the same final result. 39 % 8 = 7 so at the begining our subset sum is 7. We add 4 to subset, 
 		thus new sum is 7 + 4 = 11. And *11 % 8 = 3*. Same thing.  *Modulo operations are distributive.*
   - So instead of storing counters for milions of diferent sums, we only need to store counters for numbers up to max K, which is 50 here.
-- **Bottom line, instead of storing millions of subsets which would be unfeasable, or counters for millions of sums, we only need to store maximum 50 counters.** 
+- **Bottom line, instead of storing billions of subsets which would be unfeasable, or counters for billions of sums, we only need to store maximum 50 counters.** 
 - Each new number a added to form subsets(their sums) is a<sup>a</sup>. By the same rule as before, we only need the mod K of that number. But to
 	get the modulo you have to calculate the number first. There are optimized methods of calculating power using memoization,
 	which do not require exponent amount of multiplications, but require logBase2(exponent) + 1 number of multiplications. 
