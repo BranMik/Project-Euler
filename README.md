@@ -4,10 +4,10 @@
 This is my solution to Project Euler #250 problem version posted on HackerRank.
 Link : https://www.hackerrank.com/contests/projecteuler/challenges/euler250/problem
 
-The problem is to find the number of non-empty subsets from 1^1 to N^N so {1^1, 2^2, 3^3, ....N^N}, the sum of whose elements is divisible
+The problem is to find the number of non-empty subsets from 1<sup>1</sup> to N<sup>N</sup> so {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....N<sup>N</sup>}, the sum of whose elements is divisible
 by some given K.
 
-1 <= N <= 10^400    so for biggest N a set would be {1^1, 2^2, 3^3, ....(10^400)^(10^400)}
+1 <= N <= 10<sup>400</sup>    so for biggest N a set would be {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....(10<sup>400</sup>)<sup>(10<sup>400</sup>)</sup>}
 
 3 <= K <= 50
 
@@ -23,21 +23,21 @@ by some given K.
 		thus new sum is 7 + 4 = 11. And 11 % 8 = 3. Same thing.  *Modulo operations are distributive.*
   - So instead of storing counters for milions of diferent sums, we only need to store counters for numbers up to max K, which is 50 here.
 - **Bottom line, instead of storing millions of subsets which would be unfeasable, or counters for millions of sums, we only need to store maximum 50 counters.** 
-- Each new number a added to form subsets(their sums) is a^a. By the same rule as before, we only need the mod K of that number. But to
+- Each new number a added to form subsets(their sums) is a<sup>a</sup>. By the same rule as before, we only need the mod K of that number. But to
 	get the modulo you have to calculate the number first. There are optimized methods of calculating power using memoization,
 	which do not require exponent amount of multiplications, but require logBase2(exponent) + 1 number of multiplications. 
-	So to calculate 5^32 we do not need 32 but 6 number of multiplications. These techniques are already included in language compiler,
+	So to calculate 5<sup>32</sup> we do not need 32 but 6 number of multiplications. These techniques are already included in language compiler,
 	but not their combination with modulus operation in each step, which increases number of mathematical operations, 
 	but reduces complexity of multiplication and thus increases speed for larger numbers.
-  - More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (n^n mods), **a repeating** 
+  - More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (n<sup>n</sup> mods), **a repeating** 
 	**pattern can be noticed**, for some K values larger, for some small. For instance, pattern for K = 21 is size 43, for K = 47 pattern is size 2163. 
     **- So once we locate the pattern, calculating powers and mods for new numbers is unnecessary, we can just repeatedly cycle numbers in a pattern.** 
-    And considering that max N could be huge (10^400) that's a good and necessary optimization for better results.
+    And considering that max N could be huge (10<sup>400</sup>) that's a good and necessary optimization for better results.
 - All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger custom type should be used. I haven't done this yet.
 	 
 Some comments regarding code:
 
-- Why 2d array for sum counts? As values in array of sum counts (sumsCounter) have to be updated from that same array but different index 
+- **Why 2d array for sum counts?** As values in array of sum counts (sumsCounter) have to be updated from that same array but different index 
 in each iteration, if only one array would be used that would invalidate the array and result in incorrect values. 
 	- One way to deal with this usualy is to create before each iteration a temporary array that is a copy of original one, so original array 
 is updated from temporary array which remains unchanged during iteration. While this results in correct values, if you have to perform 
