@@ -42,7 +42,7 @@ Pattern searchPattern(vector<short>&);
 uint optiPowerMod(int_fast64_t );
 
 int main() {
-	cout<<"N : ";
+    cout<<"N : ";
     cin>>N;
     cout<<"\nK : ";
     cin>>K;
