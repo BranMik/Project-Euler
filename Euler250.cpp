@@ -37,7 +37,7 @@ short K;
 
 void solveWithPatterns(Pattern , uint , uint[][MAX_K]);
 pair<Pattern , uint> solveAndFindPattern(uint[][MAX_K]);
-void updateSumsCounter(uint sumsCounter[][MAX_K] , uint num , bool currentSumArray);
+void updateSumsCounter(uint[][MAX_K], uint, bool);
 Pattern searchPattern(vector<short>&);
 uint optiPowerMod(int_fast64_t );
 
