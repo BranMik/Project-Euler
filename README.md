@@ -18,9 +18,9 @@ There are few main mathematical insights to be made here some somewhat obvious, 
 - Furthermore we do not need all the sums as well as we are only interested in count of sums that are divisible by K. Of course storing count of only
 	divisible sums is not possible because a sum of some subset that is not divisible can form a divisible sum when new number is introduced and
 	new subset formed with old one. But we still need to **store only the sums of all modulus values of K.** 
-	- For instance if K = 8 and subset sum is 39, when we add 4 as a new number, we get 43. **43 % 8 = 3**. But we could have already had 
+	- For instance if K = 8 and subset sum is 39, when we add 4 as a new number, we get 43. *43 % 8 = 3*. But we could have already had 
 		modulus of 39 beforehand as a sum with the same final result. 39 % 8 = 7 so at the begining our subset sum is 7. We add 4 to subset, 
-		thus new sum is 7 + 4 = 11. And **11 % 8 = 3**. Same thing.  *Modulo operations are distributive.*
+		thus new sum is 7 + 4 = 11. And *11 % 8 = 3*. Same thing.  *Modulo operations are distributive.*
   - So instead of storing counters for milions of diferent sums, we only need to store counters for numbers up to max K, which is 50 here.
 - **Bottom line, instead of storing millions of subsets which would be unfeasable, or counters for millions of sums, we only need to store maximum 50 counters.** 
 - Each new number a added to form subsets(their sums) is a<sup>a</sup>. By the same rule as before, we only need the mod K of that number. But to
