@@ -33,8 +33,7 @@ by some given K.
 	**pattern can be noticed**, for some K values larger, for some small. For instance, pattern for K = 21 is size 43, for K = 47 pattern is size 2163. 
     **- So once we locate the pattern, calculating powers and mods for new numbers is unnecessary, we can just repeatedly cycle numbers in a pattern.** 
     And considering that max N could be huge (10^400) that's a good and necessary optimization for better results.
-- All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger implementation should be used. 
-	I haven't done this yet.
+- All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger custom type should be used. I haven't done this yet.
 	 
 Some comments regarding code:
 
