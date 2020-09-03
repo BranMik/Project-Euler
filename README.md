@@ -30,9 +30,7 @@ There are few main mathematical insights to be made here some somewhat obvious, 
 	but not their combination with modulus operation in each step, which increases number of mathematical operations, 
 	but reduces complexity of multiplication and thus increases speed for larger numbers.
   - More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (n<sup>n</sup> mods), **a repeating** 
-	**pattern can be noticed**, for some K values larger, for some small. For instance, pattern for K = 21 is size 43, for K = 47 pattern is size 2163.
-	
-    **- So once we locate the pattern, calculating powers and mods for new numbers is unnecessary, we can just repeatedly cycle numbers in a pattern.** 
+	**pattern can be noticed**, for some K values larger, for some small. For instance, pattern for K = 21 is size 43, for K = 47 pattern is size 2163. **So once we locate the pattern, calculating powers and mods for new numbers is unnecessary, we can just repeatedly cycle numbers in a pattern.** 
     And considering that max N could be huge (10<sup>400</sup>) that's a good and necessary optimization for better results.
 - All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger custom type should be used. I haven't done this yet.
 	 
