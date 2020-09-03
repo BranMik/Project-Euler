@@ -103,7 +103,7 @@ Pattern searchPattern(vector<short> &nPowMods){
 
 void solveWithPatterns(Pattern pattern , uint nStartAt , uint sumsCounter[][MAX_K]){
 
-	//Variable that carry the index of array that is being updated in current iteration cycle. Boolean is used as either index 0 or 1.
+    //Variable that carry the index of array that is being updated in current iteration cycle. Boolean is used as either index 0 or 1.
     bool currentSumArray = true;
     uint num;
     for(uint64_t n = nStartAt ; n <= N ; n++){
