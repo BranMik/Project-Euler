@@ -43,18 +43,18 @@ is updated from temporary array which remains unchanged during iteration. While 
 many iteration cycles it is very suboptimal and time consuming since for each iteration cycle you have to fill temporary
 array with values from original array all over again. A lot of copy operations performed (N*numberOfIterationCycles) where N is the size of 
 original array and number of iteration cycles can be milions.
-	- So this is the other way of resolving this problem in a more optimal way. **You create a 2d array with 2 rows where each row represents
-	the same values but in a different state.** Two separate arrays can be also used or one array with other array begining from offset which is the
-	size of original array. But 2d array is simplest to implement and I think semantically most correct. So row index 0 in 2d array 
+	- So this is one of the other ways of resolving this problem in a more optimal way. **You create a 2d array with 2 rows where each row represents
+	the same values but in a different state.** Instead of this two separate arrays might also be used with pointers changing between one and the other array.
+	But I think 2d array is simpler and more concise to implement. So row index 0 in 2d array 
 	represents the same sum counts as row 1, only difference is that one row is your current row which is updated, and other contains values you
 	update from (the values that were updated in previous iteration cycle). *So in each iteration cycle you toggle the current and previous array,
 	the one which was current and contains newest values becomes previous (one you update from) and the other one becomes current. That way there
-	is no copying needed before iteration cycles and you always update just one array and the other one you update from is up-to-date.* Boolean 
+	is no copying or reinitialization needed before each iteration cycle and you always update just one array and the other one you update from is up-to-date.* Boolean 
 	variable can store the flag for current array (value can be just 0 and 1 which corresponds to the rows of 2d array) and is the one toggled at 
 	the end of each cycle.
 	- It should be observed also that all the values used during updating are from previously updated array, current array might as well be empty 
-	(though it's not, just containing old values).It doesn't matter because the value is overwritten. *You just avoid nulling and copying the 
-	values each time. So for instance:* 
+	(though it's not, just containing old values).It doesn't matter because the value is overwritten. *You just avoid reinitializing or nulling, or copying the 
+	values for each iteration. So for instance:* 
 	
 	*array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4]* 
 	
