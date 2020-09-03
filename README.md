@@ -1,7 +1,7 @@
 # Project-Euler
 ## Project Euler #250
 
-This is my solution to Project Euler #250 problem version posted on HackerRank.
+This is my solution to a Project Euler #250 problem  posted on HackerRank.
 Link : https://www.hackerrank.com/contests/projecteuler/challenges/euler250/problem
 
 The problem is to find the number of non-empty subsets from 1<sup>1</sup> to N<sup>N</sup> or {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....N<sup>N</sup>}, the sum of whose elements is divisible
@@ -32,7 +32,7 @@ There are few main mathematical insights to be made here some somewhat obvious, 
   - More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (a<sup>a</sup> mods), **repeating** 
 	**pattern can be noticed**, for some K values larger, for some small. For instance, pattern for K = 21 is size 43, for K = 47 pattern is size 2163. **So once we locate the pattern, calculating powers and mods for new numbers is unnecessary, we can just repeatedly cycle numbers in a pattern.** 
     And considering that max N could be huge (10<sup>400</sup>) that's a good and necessary optimization for better results.
-- All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger custom type should be used. I haven't done this yet.
+- All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger implementation should be used in some places for larger tests to end up correct. I haven't done this yet as I still haven't reached the required timing performance for some smaller tests that don't require BigIntegers.
 	 
 Some comments regarding code:
 
