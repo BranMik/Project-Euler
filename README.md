@@ -4,7 +4,7 @@
 This is my solution to Project Euler #250 problem version posted on HackerRank.
 Link : https://www.hackerrank.com/contests/projecteuler/challenges/euler250/problem
 
-The problem is to find the number of non-empty subsets from 1<sup>1</sup> to N<sup>N</sup> so {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....N<sup>N</sup>}, the sum of whose elements is divisible
+The problem is to find the number of non-empty subsets from 1<sup>1</sup> to N<sup>N</sup> or {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....N<sup>N</sup>}, the sum of whose elements is divisible
 by some given K.
 
 1 <= N <= 10<sup>400</sup>    so for biggest N a set would be {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....(10<sup>400</sup>)<sup>(10<sup>400</sup>)</sup>}
