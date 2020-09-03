@@ -53,8 +53,8 @@ original array and number of iteration cycles can be milions.
 	variable stores the flag for current array** (value can be just 0 and 1 which corresponds to the rows of 2d array) and is the one toggled at 
 	the end of each cycle.
 	- It should be observed also that all the values used during updating are from previously updated array, current array might as well be empty 
-	(though it's not, just containing old values).It doesn't matter because the value is overwritten. *You just avoid reinitializing or nulling, or copying the 
-	values for each iteration. So for instance:* 
+	(though it's not, just containing old values).It doesn't matter because the value is overwritten. You just avoid reinitializing or nulling, or copying the 
+	values for each iteration. So for instance: 
 	
 	*array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4]* 
 	
