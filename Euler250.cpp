@@ -41,8 +41,6 @@ void updateSumsCounter(uint sumsCounter[][MAX_K] , uint num , bool currentSumArr
 Pattern searchPattern(vector<short>&);
 uint optiPowerMod(int_fast64_t );
 
-void printVec(vector<short> vec);
-
 int main() {
 	cout<<"N : ";
     cin>>N;
@@ -65,11 +63,6 @@ int main() {
     return 0;
 }
 
-void printVec(vector<short> vec){
-	for(short num:vec)
-		cout<<num<<" , ";
-	cout<<endl;
-}
 pair<Pattern,uint> solveAndFindPattern(uint sumsCounter[][MAX_K]){
 	short patternSearchTrigger = 50;
 	vector<short> nPowMods;
