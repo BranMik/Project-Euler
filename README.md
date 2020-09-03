@@ -57,9 +57,9 @@ original array and number of iteration cycles can be milions.
 	(though it's not, just containing old values).It doesn't matter because the value is overwritten. *You just avoid nulling and copying the 
 	values each time. So for instance:* 
 	
-	array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4] 
+	*array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4]* 
 	
 	,not
 	
-	array[current][2] += array[previouslyUpdated][4].
+	*array[current][2] += array[previouslyUpdated][4]*.
 	
