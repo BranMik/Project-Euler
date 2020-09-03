@@ -13,6 +13,7 @@ private:
 	vector<short> patternNums;
 	size_t currentIndex = 0;
 public:
+
 	Pattern(){patternIsValid = false;}
 	Pattern(vector<short>,short);
 	bool patternIsValid;
@@ -40,10 +41,15 @@ void updateSumsCounter(uint sumsCounter[][MAX_K] , uint num , bool currentSumArr
 Pattern searchPattern(vector<short>&);
 uint optiPowerMod(int_fast64_t );
 
+void printVec(vector<short> vec);
+
 int main() {
+	cout<<"N : ";
     cin>>N;
+    cout<<"\nK : ";
     cin>>K;
-    //auto start_time = high_resolution_clock::now();
+    cout<<endl;
+    auto start_time = high_resolution_clock::now();
     uint sumsCounter[2][MAX_K] = { 0 };
     sumsCounter[0][0] = 1;
     sumsCounter[1][0] = 1;
@@ -51,14 +57,19 @@ int main() {
     if(patternAndStart.first.patternIsValid){ //Pattern was found
     	solveWithPatterns(patternAndStart.first,patternAndStart.second,sumsCounter);
     }
-    /*auto end_time = high_resolution_clock::now();
-    cout << "Sieve running time: " << duration_cast<microseconds>
-    					 (end_time - start_time).count() / 1000.f << " ms" << endl;*/
+    auto end_time = high_resolution_clock::now();
+    cout << "Running time: " << duration_cast<microseconds>
+    					 (end_time - start_time).count() / 1000.f << " ms" << endl;
     uint result = sumsCounter[0][0];
     cout << result;
     return 0;
 }
 
+void printVec(vector<short> vec){
+	for(short num:vec)
+		cout<<num<<" , ";
+	cout<<endl;
+}
 pair<Pattern,uint> solveAndFindPattern(uint sumsCounter[][MAX_K]){
 	short patternSearchTrigger = 50;
 	vector<short> nPowMods;
@@ -74,11 +85,14 @@ pair<Pattern,uint> solveAndFindPattern(uint sumsCounter[][MAX_K]){
 				copy(sumsCounter[currentSumArray] , sumsCounter[currentSumArray] + MAX_K , sumsCounter[!currentSumArray]);
 				return pair<Pattern,int>(result,n + 1);
 				break;
-			}else patternSearchTrigger *= 10;
+			}else {
+				patternSearchTrigger *= 10;
+			}
 		}
 		currentSumArray=!currentSumArray;
 	}
 
+	sumsCounter[!currentSumArray][0]--;
 	copy(sumsCounter[!currentSumArray] , sumsCounter[!currentSumArray] + MAX_K , sumsCounter[currentSumArray]);
 	return  pair<Pattern,int>(result , -1);
 }
@@ -98,12 +112,12 @@ Pattern searchPattern(vector<short> &nPowMods){
 			}
         }
     }
-    return Pattern(vector<short>() , -1);
+    return Pattern();
 }
 
 void solveWithPatterns(Pattern pattern , uint nStartAt , uint sumsCounter[][MAX_K]){
 
-    //Variable that carry the index of array that is being updated in current iteration cycle. Boolean is used as either index 0 or 1.
+	//Variable that carry the index of array that is being updated in current iteration cycle. Boolean is used as either index 0 or 1.
     bool currentSumArray = true;
     uint num;
     for(uint64_t n = nStartAt ; n <= N ; n++){
