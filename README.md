@@ -6,7 +6,9 @@ Link : https://www.hackerrank.com/contests/projecteuler/challenges/euler250/prob
 
 The problem is to find the number of non-empty subsets from 1^1 to N^N so {1^1, 2^2, 3^3, ....N^N}, the sum of whose elements is divisible
 by some given K.
+
 1 <= N <= 10^400    so for biggest N a set would be {1^1, 2^2, 3^3, ....(10^400)^(10^400)}
+
 3 <= K <= 50
 
 -There are few main mathematical insights to be made here some somewhat obvious, other less so:
@@ -16,7 +18,7 @@ by some given K.
 - Furthermore we do not need all the sums as well as we are only interested in count of sums that are divisible by K. Of course storing only
 	divisible sums is not possible because a sum of some subset that is not divisible can form a divisible sum when new number is introduced and
 	new subset formed with old one. But we still need to **store only the sums of all modulus of K value.** 
-  -For instance if K = 8 and subset sum is 39, when we add 4 as a new number, we get 43. 43 % 8 = 3. But we could have already had 
+	- For instance if K = 8 and subset sum is 39, when we add 4 as a new number, we get 43. 43 % 8 = 3. But we could have already had 
 		modulus of 39 beforehand as a sum with the same final result. 39 % 8 = 7 so at the begining our subset sum is 7. We add 4 to subset, 
 		thus new sum is 7 + 4 = 11. And 11 % 8 = 3. Same thing.  *Modulo operations are distributive.*
   - So instead of storing counters for milions of diferent sums, we only need to store counters for numbers up to max K, which is 50 here.
