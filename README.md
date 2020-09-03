@@ -7,15 +7,15 @@ Link : https://www.hackerrank.com/contests/projecteuler/challenges/euler250/prob
 The problem is to find the number of non-empty subsets from 1<sup>1</sup> to N<sup>N</sup> or {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....N<sup>N</sup>}, the sum of whose elements is divisible
 by some given K.
 
-1 <= N <= 10<sup>400</sup>    so for biggest N a set would be {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....(10<sup>400</sup>)<sup>(10<sup>400</sup>)</sup>}
+1 <= N <= 10<sup>400</sup>    so for biggest N a set would be {1<sup>1</sup>, 2<sup>2</sup>, 3<sup>3</sup>, ....(10<sup>400</sup>)<sup>10<sup>400</sup></sup>}
 
 3 <= K <= 50
 
--There are few main mathematical insights to be made here some somewhat obvious, other less so:
+There are few main mathematical insights to be made here some somewhat obvious, other less so:
 - We are dealing with numerous subsets of a large set, but we do not need any data about each subset except its sum. 
   - So storing and remembering subsets is unnecessary, and would be impossible (millions of subsets, each containing thousands or millions
 		of numbers). **All you need to store/remember are subset sums.**
-- Furthermore we do not need all the sums as well as we are only interested in count of sums that are divisible by K. Of course storing only
+- Furthermore we do not need all the sums as well as we are only interested in count of sums that are divisible by K. Of course storing count of only
 	divisible sums is not possible because a sum of some subset that is not divisible can form a divisible sum when new number is introduced and
 	new subset formed with old one. But we still need to **store only the sums of all modulus of K value.** 
 	- For instance if K = 8 and subset sum is 39, when we add 4 as a new number, we get 43. 43 % 8 = 3. But we could have already had 
