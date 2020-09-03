@@ -58,6 +58,8 @@ original array and number of iteration cycles can be milions.
 	values each time. So for instance:* 
 	
 	array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4] 
-	,not 
+	
+	,not
+	
 	array[current][2] += array[previouslyUpdated][4].
 	
