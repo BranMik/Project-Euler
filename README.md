@@ -56,5 +56,8 @@ original array and number of iteration cycles can be milions.
 	- It should be observed also that all the values used during updating are from previously updated array, current array might as well be empty 
 	(though it's not, just containing old values).It doesn't matter because the value is overwritten. *You just avoid nulling and copying the 
 	values each time. So for instance:* 
-	array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4] , not array[current][2] += array[previouslyUpdated][4].
+	
+	array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4] 
+	,not 
+	array[current][2] += array[previouslyUpdated][4].
 	
