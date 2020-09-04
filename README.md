@@ -25,7 +25,7 @@ There are few main mathematical insights to be made here some somewhat obvious, 
 - **Bottom line, instead of storing billions of subsets which would be unfeasable, or counters for billions of sums, we only need to store maximum 50 counters.** 
 - Each new *a<sub>th</sub>* number added to form subsets(their sums) is *a<sup>a</sup>*. By the same rule as before, we only need the mod K of that number. But to
 	get the modulo you have to calculate the number first. There are optimized methods of calculating power using memoization,
-	which do not require exponent amount of multiplications, but require logBase2(exponent) + 1 number of multiplications. 
+	which do not require exponent amount of multiplications, but require log<sub>2</sub>(exponent) + 1 number of multiplications. 
 	So to calculate 5<sup>32</sup> we do not need 32 but 6 multiplications. These techniques are already included in language compiler,
 	but not their combination with modulus operation in each step, which increases number of mathematical operations, 
 	but reduces complexity of multiplication and thus increases speed for larger numbers.
