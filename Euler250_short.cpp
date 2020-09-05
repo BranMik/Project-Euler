@@ -10,7 +10,7 @@ const short MAX_K = 50;
 uint64_t N;
 short K;
 
-void solve(uint[][50]);
+void solve(uint[][MAX_K]);
 uint optiPowerMod(int_fast64_t );
 
 int main() {
