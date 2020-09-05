@@ -29,7 +29,6 @@ void solve(uint sumsCounter[][MAX_K]){
 		uint num = optiPowerMod(n);
 		short updateFromSum = K - num;
 		for(short sum = 0 ; sum < K ; sum++){
-			if(updateFromSum == K)updateFromSum = 0;
 			sumsCounter[currentSumArray][sum] = (sumsCounter[!currentSumArray][sum] + sumsCounter[!currentSumArray][(updateFromSum++)%K]) % 1000000000;
 		}
 		currentSumArray = !currentSumArray;
