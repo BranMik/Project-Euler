@@ -3,10 +3,8 @@
 #include <iterator>
 #include <vector>
 #include <algorithm>
-#include <chrono>
 
 using namespace std;
-using namespace chrono;
 
 const short MAX_K = 50;
 uint64_t N;
@@ -18,13 +16,9 @@ uint optiPowerMod(int_fast64_t );
 int main() {
     cin>>N;
     cin>>K;
-    auto start_time = high_resolution_clock::now();
     uint sumsCounter[2][MAX_K] = { 0 };
     sumsCounter[0][0] = 1, sumsCounter[1][0] = 1;
     solve(sumsCounter);
-    auto end_time = high_resolution_clock::now();
-    cout << "Running time: " << duration_cast<microseconds>
-    					 (end_time - start_time).count() / 1000.f << " ms" << endl;
     cout << sumsCounter[0][0];
     return 0;
 }
