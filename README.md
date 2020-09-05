@@ -36,6 +36,7 @@ There are few main mathematical insights to be made here some somewhat obvious, 
 Some comments regarding code:
 
 - **I also included shorter version without pattern-searching because it is more concise and easier to understand though less performant.**
+	*(Pattern-searching almost triples the size of code but gives 5x times faster performance which admitedly is not Big O material, but is not bad either)* 
 
 - **Why 2d array for sum counts?** As values in array of sum counts (sumsCounter) have to be updated from that same array but different index 
 in each iteration, if only one array would be used that would invalidate the array and result in incorrect values. 
