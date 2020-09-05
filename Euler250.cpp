@@ -129,7 +129,9 @@ void updateSumsCounter(uint sumsCounter[][MAX_K] , uint num , bool currentSumArr
 	//The index of array updated in previous iteration cycle.
 	bool previousSumArray = !currentSumArray;
 	for(short sum = 0 ; sum < K ; sum++){
-		if(updateFromSum == K)updateFromSum = 0;
+		
+		//Removing the %K operation from equation and replacing it with this conditional improves code speed by 1/3, see Euler250_short for previous version
+		if(updateFromSum == K)updateFromSum = 0; 
 		sumsCounter[currentSumArray][sum] = (sumsCounter[previousSumArray][sum] + sumsCounter[previousSumArray][updateFromSum++]) % RESULT_MODULO;
 	}
 }
