@@ -142,9 +142,9 @@ uint optiPowerMod(int_fast64_t n){
     while (pow > 0)
     {
         if((pow & 1) == 1)
-            res = (((res % K) * (n % K)) % K);
+            res = (res * n) % K;
         pow = pow >> 1;
-        n = ((n % K) * (n % K)) % K;
+        n = (n * n) % K;
     }
     return res;
 }
