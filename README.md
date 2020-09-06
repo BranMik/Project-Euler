@@ -37,6 +37,6 @@ Some comments regarding code:
 
 - **I also included shorter version without pattern-searching because it is more concise and easier to understand though less performant.**
 
-- **Why 2d array for sum counts?** As values in array of sum counts (sumsCounter) have to be updated from that same array but different index 
-in each iteration, if only one array would be used that would invalidate the array and result in incorrect values. With 2d array each row represents the same values but in a different state. One row is your current row which is updated, and other contains values you update from (the values that were updated in previous iteration cycle). This way there is no copying or initialization of new or temporary arrays needed before or after each K-iteration cycle. You always update just one array and the other one you update from is up-to-date. Boolean variable stores the flag for current array and is the one toggled at the end of each cycle.
+- **Why 2d array for sum counts?** As all the values in an array of sum counts (sumsCounter) have to be updated from that same array but different indices 
+in each iteration cycle, if only one array would be used that would invalidate the array and result in incorrect values. With 2d array each row represents the same values but in a different state. One row is your current row which is updated, and other contains values you update from (the values that were updated in previous iteration cycle). This way there is no copying or initialization of new or temporary arrays needed before or after each K-iteration cycle. You always update just one array and the other one you update from is up-to-date. Boolean variable stores the flag for current array and is the one toggled at the end of each cycle.
 
