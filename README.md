@@ -39,23 +39,17 @@ Some comments regarding code:
 
 - **Why 2d array for sum counts?** As values in array of sum counts (sumsCounter) have to be updated from that same array but different index 
 in each iteration, if only one array would be used that would invalidate the array and result in incorrect values. 
-	- One way to deal with this usualy is to create before each iteration a temporary array that is a copy of original one, so original array 
-is updated from temporary array which remains unchanged during iteration. While this results in correct values, if you have to perform 
-many iteration cycles it is very suboptimal and time consuming since for each iteration cycle you have to fill temporary
-array with values from original array all over again. A lot of copy operations performed (N*numberOfIterationCycles) where N is the size of 
-original array and number of iteration cycles can be milions.
-	- So this is one of the other ways of resolving this problem in a more optimal way. **You create a 2d array with 2 rows where each row represents
-	the same values but in a different state.** Instead of this two separate arrays might also be used with pointers changing between one and the other array.
+	- So this is one of the ways of resolving this problem in a relatively optimal way. You create a 2d array with 2 rows where each row represents
+	the same values but in a different state. Instead of this two separate arrays might also be used with pointers changing between one and the other array.
 	But I think 2d array is simpler and more concise to implement. So row index 0 in 2d array 
 	represents the same sum counts as row 1, only difference is that one row is your current row which is updated, and other contains values you
 	update from (the values that were updated in previous iteration cycle). *So in each iteration cycle you toggle the current and previous array,
 	the one which was current and contains newest values becomes previous (one you update from) and the other one becomes current. That way there
-	is no copying or reinitialization needed before each iteration cycle and you always update just one array and the other one you update from is up-to-date.* **Boolean 
+	is no copying or initialization needed before each iteration cycle and you always update just one array and the other one you update from is up-to-date.* **Boolean 
 	variable stores the flag for current array** (value can be just 0 and 1 which corresponds to the rows of 2d array) and is the one toggled at 
 	the end of each cycle.
-	- It should be observed also that all the values used during updating are from previously updated array, current array might as well be empty 
-	(though it's not, just containing old values).It doesn't matter because the value is overwritten. You just avoid reinitializing or nulling, or copying the 
-	values for each iteration. So for instance: 
+	- All the values used during updating are from previously updated array, current array might as well be empty 
+	(though it's not, just containing old values).It doesn't matter because the value is overwritten. So:
 	
 	*array[current][2] = array[previouslyUpdated][2] + array[previouslyUpdated][4]* 
 	
