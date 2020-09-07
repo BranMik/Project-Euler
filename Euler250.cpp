@@ -77,7 +77,6 @@ pair<Pattern,uint> solveAndFindPattern(uint sumsCounter[][MAX_K]){
 			if(result.patternIsValid){
 				copy(sumsCounter[currentSumArray] , sumsCounter[currentSumArray] + MAX_K , sumsCounter[!currentSumArray]);
 				return pair<Pattern,int>(result,n + 1);
-				break;
 			}else {
 				patternSearchTrigger *= 10;
 			}
