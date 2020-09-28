@@ -24,11 +24,10 @@ There are few main mathematical insights to be made here some somewhat obvious, 
   - So instead of storing counters for milions of diferent sums, we only need to store counters for numbers up to max K, which is 50 here.
 - **Bottom line, instead of storing billions of subsets which would be unfeasable, or counters for billions of sums, we only need to store maximum 50 counters.** 
 - Each new *a<sub>th</sub>* number added to form subsets(their sums) is *a<sup>a</sup>*. By the same rule as before, we only need the mod K of that number. But to
-	get the modulo you have to calculate the number first. There is an optimized algorithm for calculating power using memoization,
-	which do not require exponent amount of multiplications, but require log<sub>2</sub>(exponent) + 1 number of multiplications. It's called "**exponentiation by squaring**" algorithm. So to calculate 5<sup>32</sup> with it we do not need 32 but 6 multiplications. This algorithm is already included in language compiler by default for
+	get the modulo you have to calculate the number first. There is an optimized algorithm for calculating powers that do not require exponent amount of multiplications, but instead just log<sub>2</sub>(exponent) + 1 number of multiplications. It's called "**exponentiation by squaring**" algorithm. So to calculate 5<sup>32</sup> with it we do not need 32 but 6 multiplications. This algorithm is already included in language compiler by default for
 	pow function, but not its combination with modulus operation in each step, which increases number of mathematical operations, 
 	but reduces complexity of multiplication and thus increases speed for larger numbers. So called "**modular exponentiation**".
-  - More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (a<sup>a</sup> mods), **repeating** 
+- More importantly, as we transform each new added number into a modulus of K, if we keep track of those values (a<sup>a</sup> mods), **repeating** 
 	**pattern can be noticed**, for some K values larger, for some small. For instance, pattern for K = 21 is size 43, for K = 47 pattern is size 2163. **So once we locate the pattern, calculating powers and mods for new numbers is unnecessary, we can just repeatedly cycle numbers in a pattern.** 
     And considering that max N could be huge (10<sup>400</sup>) that's a good optimization for better results.
 - All that considering, number of iterations can still be huge and have to be counted somehow so a BigInteger implementation should be used in some places for larger tests to end up correct. I haven't done this yet as I still haven't reached the required timing performance for some smaller tests that don't require BigIntegers.
